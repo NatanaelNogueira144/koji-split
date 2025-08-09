@@ -1,0 +1,168 @@
+/* General */
+
+body { 
+    background: #161b22; 
+    color: #fff; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.container { 
+    max-width: 420px; 
+    margin: 40px auto; 
+    background: #22272e; 
+    border-radius: 12px; 
+    box-shadow: 0 5px 18px rgba(0,0,0,.3); 
+    padding: 30px; 
+}
+
+h1 { 
+    text-align: center; 
+    color: #58a6ff; 
+    margin-bottom: 30px; 
+}
+
+h2 { 
+    text-align: center; 
+    color: #58a6ff; 
+    margin-bottom: 10px;
+}
+
+div.buttons { 
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    margin-bottom: 20px; 
+}
+
+button {
+    background: #21262d; 
+    border: 1px solid #30363d; 
+    border-radius: 7px;
+    cursor: pointer; 
+    transition: background .13s;
+}
+
+button:hover { 
+    background: #30363d; 
+}
+
+button.menu-button {
+    color: #58a6ff; 
+    font-size: 1.1rem; 
+    padding: 9px 24px; 
+}
+
+/* Categories Area */
+
+table.categories-table {
+    border-collapse: collapse;
+    margin: 0px auto;
+    width: 100%;
+}
+
+table.categories-table th, table.categories-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+table.segments-table {
+    border-collapse: collapse;
+    margin: 0px auto;
+    width: 100%;
+}
+
+table.segments-table th, table.segments-table td {
+    text-align: center;
+}
+
+button.use-button {
+    color: green;
+    padding: 5px 10px;
+}
+
+button.edit-button {
+    color: #58a6ff;
+    padding: 5px 10px;
+}
+
+button.delete-button {
+    color: rgb(195, 0, 0);
+    padding: 5px 10px;
+}
+
+/* Category Form Area */
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 7px 0px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #58a6ff;
+    color: white;
+    background-color: transparent;
+}
+
+div.actions {
+    display: flex; 
+    gap: 3px;
+}
+
+div.segments-edit-list { 
+    margin: 22px 0px; 
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+button.add-segment-button {
+    color: #58a6ff;
+    padding: 5px 10px;
+}
+
+/* KojiSplit Area */
+
+div.segments-list { 
+    margin: 22px 0px;
+    max-height: 380px;
+    padding: 0px 5px;
+    overflow-y: scroll;
+}
+
+div.timer { 
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+
+.segment { 
+    display: flex; 
+    justify-content: space-between; 
+    padding: 10px 0; 
+    border-bottom: 1px solid #272e36; 
+}
+
+.segment.active { 
+    color: #58ffbe; 
+}
+
+.segment.best { 
+    color: #f7e455; 
+}

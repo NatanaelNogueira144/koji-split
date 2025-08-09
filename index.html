@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>KojiSplit</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div id="categoriesArea">
+            <h1>Categories</h1>
+            <div class="buttons">
+                <button type="button" class="menu-button" onclick="goToCreateCategory()">Create</button>
+            </div>
+            <div id="categoriesList" class="categories"></div>
+        </div>
+
+        <div id="categoryFormArea" style="display: none;">
+            <h1 id="categoryFormAreaTitle">Create Category</h1>
+            <form action="#" onsubmit="submitCategoryForm(event)">
+                <input id="categoryTitleInput" type="text" name="title" placeholder="Splits title...">
+                <h2>Segments</h2>
+                <div id="segmentsEditList" class="segments-edit-list"></div>
+                <div class="buttons">
+                    <button type="button" class="add-segment-button" onclick="addSegmentRow()">
+                        + Segment
+                    </button>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="menu-button">Save</button>
+                    <button type="button" class="menu-button" onclick="goToCategories()">Return</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="kojiSplitArea" style="display: none;">
+            <h1>KojiSplit</h1>
+            <div id="mainTimer" class="timer">00:00.00</div>
+            <div id="segmentsList" class="segments-list"></div>
+            <div class="buttons">
+                <button type="button" class="menu-button" onclick="goToCategories()">
+                    Return
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/app.js"></script>
+</body>
+</html>
