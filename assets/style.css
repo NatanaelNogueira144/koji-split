@@ -142,7 +142,7 @@ div.segments-list {
     margin: 22px 0px;
     max-height: 380px;
     padding: 0px 5px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 div.timer { 
@@ -165,4 +165,8 @@ div.timer {
 
 .segment.best { 
     color: #f7e455; 
+}
+
+.segment.hidden {
+    display: none;
 }

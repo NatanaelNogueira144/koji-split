@@ -306,11 +306,27 @@ function renderSegments() {
     let html = '';
     state.currentSegments.forEach((s, i) => {
         let cls = 'segment';
+
+        const lastSegment = state.currentSegments.length - 1;
+        const isFirstSegment = state.currentSegment <= 7;
+        const isMiddleSegment = state.currentSegment >= 8 && state.currentSegment < lastSegment;
+        const isLastSegment = state.currentSegment === lastSegment;
+
+        const isNotLastSegment = i < lastSegment;
+        const beforeWindow = i <= state.currentSegment - 8;
+        const afterWindow = i > state.currentSegment;
+
         if (state.isRunning) {
             if (i === state.currentSegment) cls += ' active';
             if (state.currentSegment > i && s.bestTime && s.segmentTime && s.bestTime === s.segmentTime)
                 cls += ' best';
         }
+
+        if((isFirstSegment && i >= 8 && isNotLastSegment)
+        || (isMiddleSegment && (beforeWindow || afterWindow) && isNotLastSegment)
+        || (isLastSegment && i < state.currentSegment - 8)) 
+            cls += ' hidden';
+
         html += `<div class="${cls}">
             ${s.description} <span>${s.splitTime ? Time.format(s.splitTime) : '-'}</span>
         </div>`;
