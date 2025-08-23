@@ -1,4 +1,4 @@
-// Estado da Aplicação
+// Application state
 const state = {
     storedCategories: JSON.parse(localStorage.getItem('@koji-split:categories')) ?? [],
     currentCategory: null,
@@ -14,7 +14,7 @@ const state = {
 
 const TIME_FORMAT = /^(\d{2}):(\d{2})\.(\d{2})$/;
 
-// Cache de Elementos DOM
+// DOM Cache Elements
 const DOM = {
     categoriesArea: document.getElementById('categoriesArea'),
     categoriesList: document.getElementById('categoriesList'),
@@ -27,7 +27,7 @@ const DOM = {
     segmentsList: document.getElementById('segmentsList')
 };
 
-// Utilitários de Armazenamento e Tempo
+// Storage and Time Utils
 const Storage = {
     save: () => localStorage.setItem('@koji-split:categories', JSON.stringify(state.storedCategories))
 };
@@ -48,7 +48,7 @@ const Time = {
     }
 };
 
-// UI – Controle de Áreas
+// UI – Areas Control
 const UI = {
     showCategoriesArea: () => {
         DOM.categoriesArea.style.display = 'block';
@@ -67,7 +67,7 @@ const UI = {
     }
 };
 
-// Renderização de Categorias
+// Categories Renderization
 function goToCategories() {
     if(state.isOnKojiSplit) resetTimer();
 
@@ -136,7 +136,7 @@ function createCategoriesBody(categories) {
     return tbody;
 }
 
-// Renderização do Formulário de Categoria e Segmentos
+// Category and Segments Form Renderization
 function goToCreateCategory() {
     state.currentCategory = null;
     DOM.categoryFormAreaTitle.textContent = 'Create Category';
@@ -165,7 +165,7 @@ function renderSegmentsTable(segments = []) {
 
 function createSegmentRow(segment = {}) {
     const tr = document.createElement('tr');
-    // Descrição
+    // Description
     const nameTd = document.createElement('td');
     const nameInput = document.createElement('input');
     nameInput.type = 'text';
@@ -204,7 +204,7 @@ function createSegmentRow(segment = {}) {
     bestInput.readOnly = true;
     bestTd.appendChild(bestInput);
     tr.appendChild(bestTd);
-    // Botão excluir segmento
+    // Delete segment button
     const actionTd = document.createElement('td');
     const deleteButton = document.createElement('button');
     deleteButton.type = 'button';
@@ -217,7 +217,7 @@ function createSegmentRow(segment = {}) {
     return tr;
 }
 
-// Manipulação de Categorias
+// Categories Manipulation
 function submitCategoryForm(event) {
     event.preventDefault();
     try {
@@ -277,13 +277,13 @@ function updateCategory(index, category) {
     Storage.save();
 }
 
-// Botão para adicionar nova linha de segmento
+// New segment row add button
 function addSegmentRow() {
     const table = DOM.segmentsEditList.querySelector('table');
     if (table) table.querySelector('tbody').appendChild(createSegmentRow());
 }
 
-// Tela KojiSplit – Timer e Segmentos
+// KojiSplit – Segments and Timer
 function goToKojiSplit(index) {
     state.isOnKojiSplit = true;
     state.currentCategory = index;
@@ -427,7 +427,7 @@ function skipSplit() {
     renderSegments();
 }
 
-// Eventos Globais
+// Global Events
 document.onkeyup = (e) => {
     if (!state.isOnKojiSplit) return;
     if (e.code === 'Space') {
@@ -444,6 +444,6 @@ document.onkeyup = (e) => {
     }
 };
 
-// Inicialização
+// Initialization
 renderCategories();
 UI.showCategoriesArea();
